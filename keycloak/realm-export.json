@@ -1,0 +1,69 @@
+{
+  "realm": "keni",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "apigateway",
+      "name": "apigateway",
+      "publicClient": false,
+      "secret": "apigateway-secret",
+      "redirectUris": ["http://localhost:8080/*"],
+      "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled": true
+    },
+    {
+      "clientId": "orderservice",
+      "name": "orderservice",
+      "publicClient": false,
+      "secret": "orderservice-secret",
+      "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "bearerOnly": true
+    },
+    {
+      "clientId": "userservice",
+      "name": "userservice",
+      "publicClient": false,
+      "secret": "userservice-secret",
+      "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "bearerOnly": true
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "user"
+      },
+      {
+        "name": "admin"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["admin"]
+    },
+    {
+      "username": "user",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["user"]
+    }
+  ]
+}

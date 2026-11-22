@@ -1,0 +1,11 @@
+server:
+  port: 8888   # default port for config server
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/SadhuragiriNirmal/keni-ms-config  # Git repo with config files
+          default-label: main
+          search-paths: order, user
